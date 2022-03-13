@@ -1,1 +1,7 @@
-some here
+todo sprint begin end 313-320
+
+- separate dir structure into meaningful caterogies
+- have helloWorld for install howto vid and audio edit with upload done by 314eod
+- begin to capture content for next upload ending 316
+- identify and experiment with tags attaching results by attention metric
+- love yourself and others; have positive leaning material
