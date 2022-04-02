@@ -82,5 +82,6 @@ fabric.properties
 
 # Other crap
 .DS_Store
+open-source
 
 # End of https://www.toptal.com/developers/gitignore/api/goland
