@@ -1,15 +1,39 @@
-# Welcome to Revel
+---
+# Trading in Golang
 
-A high-productivity web framework for the [Go language](http://www.golang.org/).
+### Prerequisites
 
+- REVEL Framework [Revel](https://github.com/revel/revel)
+- Above revel is a  high-productivity web framework for the [Go language](http://www.golang.org/).
+- Goland [Goland](https://www.jetbrains.com/go/) or preferred IDE like vscode atom
+- Postgresql [Opensource Database](https://www.postgresql.org/)
 
-### Start the web server:
+### Start Postgresql (Macos) and 
 
-   revel run myapp
+    brew services start postgresql 
 
-### Go to http://localhost:9000/ and you'll see:
+### DB tables interaction logic
 
-    "It works"
+    sqlInsert:= `INSERT INTO personnel (age, email, first_name, last_name) VALUES ($1, $2, $3, $4) RETURNING id`
+
+    id := 0
+    err = db.QueryRow(sqlInsert, (26,"rommel@500rockets.io","rommel","galisanao")).Scan(&id)
+    if err != nil {
+        panic(err)
+    }
+    fmt.Println("New record ID is:", id)
+
+### To Start the web server:
+
+    revel run -a myapp
+
+### Go to http://localhost:9002/ or check page status
+
+    curl -I --http2 -s localhost:9002 | grep HTTP
+
+### To TEST application running those under /tests:
+
+    revel test -a myapp
 
 ## Code Layout
 
@@ -33,11 +57,4 @@ The directory structure of a generated Revel application:
 
     tests/            Test suites
 
-
-## Help
-
-* The [Getting Started with Revel](http://revel.github.io/tutorial/gettingstarted.html).
-* The [Revel guides](http://revel.github.io/manual/index.html).
-* The [Revel sample apps](http://revel.github.io/examples/index.html).
-* The [API documentation](https://godoc.org/github.com/revel/revel).
 
