@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	data "github.com/jayatwork/team27live/tree/main/myapp/app/data"
+	data "github.com/jayatwork/team27live/myapp/app/data"
 	"github.com/revel/revel"
 )
 

@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-func initDatabase() {
+func initdb() {
 	// Being set at the systemOS level with export DATABASE_URL="postgres://username:password@localhost:5432/database_name"
 	conn, err := pgx.Connect(context.Background(), os.Getenv("DATABASE_URL"))
 	if err != nil {
@@ -16,13 +16,15 @@ func initDatabase() {
 	}
 	defer conn.Close(context.Background())
 
-	var name string
-	var weight int64
-	err = conn.QueryRow(context.Background(), "select name, weight from widgets where id=$1", 42).Scan(&name, &weight)
+	var implementation int64
+	var account string
+	var status string
+
+	err = conn.QueryRow(context.Background(), "select implementation, account, status from trading where id=$1", 42).Scan(&implementation, &account, &status)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "QueryRow failed: %v\n", err)
 		os.Exit(1)
 	}
 
-	fmt.Println(name, weight)
+	fmt.Println(implementation, account, status)
 }
