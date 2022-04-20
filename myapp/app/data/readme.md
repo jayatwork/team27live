@@ -34,6 +34,3 @@
     public | personnel | table | ******
     public | trading   | table | ******
     (2 rows)
-
- 	Alpaca Trading API 	GET /v2/account 	Status 	DATE: 
-Crytotrading with Golang 	Request 	Status 	Date: 

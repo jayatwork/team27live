@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	data "github.com/jayatwork/team27live/myapp/app/data"
 	"github.com/revel/revel"
+	"myapp/app/data"
 )
 
 type App struct {
@@ -17,7 +17,7 @@ func (c App) Hello(myName string) revel.Result {
 	c.Validation.Required(myName).Message("The name here is required")
 	c.Validation.MinSize(myName, 3).Message("The name given is not long enough")
 	c.Validation.MaxSize(myName, 12).Message("this is toooo long ")
-	data.initdb()
+	data.Initdb()
 
 	if c.Validation.HasErrors() {
 		c.Validation.Keep()

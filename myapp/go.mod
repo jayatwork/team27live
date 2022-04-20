@@ -4,6 +4,7 @@ go 1.17
 
 require (
 	github.com/jackc/pgx/v4 v4.15.0
+	github.com/lib/pq v1.10.2
 	github.com/revel/modules v1.0.0
 	github.com/revel/revel v1.0.0
 )
